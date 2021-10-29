@@ -14,7 +14,8 @@ namespace UnitTest5
 		{
 			int n = 20;
 			int t;
-			t = sum(n % 10 + sum(n / 10));
+			int depth;
+			t = f(n, 1, depth);
 			Assert::AreEqual(t, 2);
 		}
 	};

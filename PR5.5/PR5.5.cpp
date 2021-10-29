@@ -1,21 +1,22 @@
-#include <iostream>
+#include <iostream> 
+#include <cmath> 
 
 using namespace std;
-
-int sum(int n)
+int f(int n, int level, int& depth)
 {
-	if (n / 10 != 0)
-		return n % 10 + sum(n / 10);
-	else
-		return n % 10;
+    if (level > depth)
+        depth = level;
+    if (n == 0)
+        return 0;
+    else
+        return n % 10 + f(n / 10, level + 1, depth);
 }
 int main()
 {
-	int n;
-	cout << "n = "; cin >> n;
-	cout << "sum(n) = " << sum(n) << endl;
-	cout << "Depth = " << n << endl;
+    int n, depth;
 
-	return 0;
+    cout << "n = "; cin >> n;
+    cout << "f(n) = " << f(n, 1, depth) << endl;
+    cout << "Depth = " << depth << endl;
+    return 0;
 }
-
